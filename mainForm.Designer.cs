@@ -1,7 +1,7 @@
 ﻿
 namespace jpLearningToolOcr
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,11 @@ namespace jpLearningToolOcr
         {
             this.screenshotButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+<<<<<<< HEAD:mainForm.Designer.cs
+            this.debugButton = new System.Windows.Forms.Button();
+            this.sqliteDebugBtn = new System.Windows.Forms.Button();
+=======
+>>>>>>> parent of 189fbda (cleaning old code):Form1.Designer.cs
             this.SuspendLayout();
             // 
             // screenshotButton
@@ -56,11 +61,40 @@ namespace jpLearningToolOcr
     "lection tool.";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+<<<<<<< HEAD:mainForm.Designer.cs
+            // debugButton
+            // 
+            this.debugButton.Location = new System.Drawing.Point(263, 154);
+            this.debugButton.Name = "debugButton";
+            this.debugButton.Size = new System.Drawing.Size(75, 23);
+            this.debugButton.TabIndex = 2;
+            this.debugButton.Text = "debug_btn";
+            this.debugButton.UseVisualStyleBackColor = true;
+            this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
+            // 
+            // sqliteDebugBtn
+            // 
+            this.sqliteDebugBtn.Location = new System.Drawing.Point(182, 154);
+            this.sqliteDebugBtn.Name = "sqliteDebugBtn";
+            this.sqliteDebugBtn.Size = new System.Drawing.Size(75, 23);
+            this.sqliteDebugBtn.TabIndex = 3;
+            this.sqliteDebugBtn.Text = "debug_sqlite";
+            this.sqliteDebugBtn.UseVisualStyleBackColor = true;
+            this.sqliteDebugBtn.Click += new System.EventHandler(this.sqliteDebugBtn_Click);
+            // 
+=======
+>>>>>>> parent of 189fbda (cleaning old code):Form1.Designer.cs
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD:mainForm.Designer.cs
+            this.ClientSize = new System.Drawing.Size(350, 187);
+            this.Controls.Add(this.sqliteDebugBtn);
+            this.Controls.Add(this.debugButton);
+=======
             this.ClientSize = new System.Drawing.Size(323, 157);
+>>>>>>> parent of 189fbda (cleaning old code):Form1.Designer.cs
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.screenshotButton);
             this.Name = "Form1";
@@ -75,6 +109,11 @@ namespace jpLearningToolOcr
 
         private System.Windows.Forms.Button screenshotButton;
         private System.Windows.Forms.TextBox textBox1;
+<<<<<<< HEAD:mainForm.Designer.cs
+        private System.Windows.Forms.Button debugButton;
+        private System.Windows.Forms.Button sqliteDebugBtn;
+=======
+>>>>>>> parent of 189fbda (cleaning old code):Form1.Designer.cs
     }
 }
 

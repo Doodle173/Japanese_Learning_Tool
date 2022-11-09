@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+language_database/jp_lang_data.db
+language_database/jp_lang_data
