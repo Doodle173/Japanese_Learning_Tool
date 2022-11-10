@@ -220,6 +220,7 @@ namespace jpLearningToolOcr
             this.Controls.Add(this.resultsBox);
             this.Name = "ResultForm";
             this.Text = "ResultForm";
+            this.Load += new System.EventHandler(this.ResultForm_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,11 +238,11 @@ namespace jpLearningToolOcr
         private System.Windows.Forms.TextBox scanAccuracy;
         private System.Windows.Forms.Label hiraganaReadingLabel;
         private System.Windows.Forms.TextBox hiraganaReading;
-        private System.Windows.Forms.ListBox wordMeaningsBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.ListBox wordReadingsBox;
+        public System.Windows.Forms.ListBox wordMeaningsBox;
     }
 }

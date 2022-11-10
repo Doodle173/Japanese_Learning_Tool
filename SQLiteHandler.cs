@@ -37,7 +37,6 @@ namespace jpLearningToolOcr
         {
             this.cmd_string = $"SELECT entr FROM kanj WHERE txt='{word}';";
             this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
-            var entr = 0; //= cmd.ExecuteScalar().ToString();
             using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
@@ -45,9 +44,6 @@ namespace jpLearningToolOcr
                     ResultForm.query_result.entry_id = reader[0].ToString();
                 }
             }
-
-            //ResultForm.query_result.entry_id = entr;
-            //ResultForm.query_result.word = word;
         }
 
         public void get_reading(string entry)
@@ -59,7 +55,6 @@ namespace jpLearningToolOcr
             {
                 while (reader.Read())
                 {
-                    //
                     string current = reader[0].ToString();
                     ResultForm.query_result.readings.Add(current);
                 }
@@ -69,6 +64,27 @@ namespace jpLearningToolOcr
             foreach (string s in ResultForm.query_result.readings)
             {
                 MainForm.tool.resultForm.wordReadingsBox.Items.Add(s);
+            }
+        }
+
+        public void get_meanings(string entry)
+        {
+            this.cmd_string = $"SELECT txt FROM gloss WHERE entr='{entry}'";
+            this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
+            int i = 0;
+            using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string current = reader[0].ToString();
+                    ResultForm.query_result.meanings.Add(current);
+                }
+            }
+
+
+            foreach (string s in ResultForm.query_result.meanings)
+            {
+                MainForm.tool.resultForm.wordMeaningsBox.Items.Add(s);
             }
         }
 

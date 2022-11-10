@@ -29,10 +29,13 @@ namespace jpLearningToolOcr
             {
                 query_result.readings.Clear();
                 this.wordReadingsBox.Items.Clear();
+                query_result.meanings.Clear();
+                this.wordMeaningsBox.Items.Clear();
                 selection = this.resultsBox.SelectedItem.ToString();
                 MainForm.handler.get_entry(selection);
                 MainForm.handler.get_reading(query_result.entry_id);
-                Console.WriteLine(query_result.readings.Count);
+                MainForm.handler.get_meanings(query_result.entry_id);
+                Console.WriteLine(query_result.meanings.Count);
             }
             else
             {
@@ -114,6 +117,11 @@ namespace jpLearningToolOcr
         }
 
         private void ResultForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResultForm_Load_1(object sender, EventArgs e)
         {
 
         }

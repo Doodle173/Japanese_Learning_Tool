@@ -12,10 +12,11 @@ namespace jpLearningToolOcr
         public string entry_id;
         public string word;
         public List<string> readings;
-
+        public List<string> meanings;
         public SearchResult()
         {
             this.readings = new List<string>();
+            this.meanings = new List<string>();
         }
 
     }
