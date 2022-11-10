@@ -32,7 +32,7 @@ namespace jpLearningToolOcr
 
         public List<string> results;
 
-        ResultForm resultForm;
+        public ResultForm resultForm;
         
         public ScreenshotTool()
         {

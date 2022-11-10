@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Web;
+using System.Data.SqlClient;
 
 namespace jpLearningToolOcr
 {
@@ -32,28 +33,61 @@ namespace jpLearningToolOcr
             Console.WriteLine("SQLite Version: " + this.sqlite_version);
         }
 
-        public void test_command(string word)
+        public void get_entry(string word)
         {
             this.cmd_string = $"SELECT entr FROM kanj WHERE txt='{word}';";
             this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
-            var entr = cmd.ExecuteScalar().ToString();
+            var entr = 0; //= cmd.ExecuteScalar().ToString();
+            using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    ResultForm.query_result.entry_id = reader[0].ToString();
+                }
+            }
 
-            this.cmd_string = $"SELECT txt FROM kanj WHERE txt='{word}';";
-            this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
-            var search_word = cmd.ExecuteScalar().ToString();
-
-            this.cmd_string = $"SELECT txt FROM rdng WHERE entr = '{entr}'";
-            this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
-            var reading = cmd.ExecuteScalar().ToString();
-
-            ResultForm.query_result.entry_id = entr;
-            ResultForm.query_result.word = search_word;
-            ResultForm.query_result.reading = reading;
-
-            Console.WriteLine(reading);
-            
-
+            //ResultForm.query_result.entry_id = entr;
+            //ResultForm.query_result.word = word;
         }
+
+        public void get_reading(string entry)
+        {
+            this.cmd_string = $"SELECT txt FROM rdng WHERE entr = '{entry}'";
+            this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
+            int i = 0;
+            using (System.Data.SQLite.SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    //
+                    string current = reader[0].ToString();
+                    ResultForm.query_result.readings.Add(current);
+                }
+            }
+
+
+            foreach (string s in ResultForm.query_result.readings)
+            {
+                MainForm.tool.resultForm.wordReadingsBox.Items.Add(s);
+            }
+        }
+
+        public void test_command(string word)
+        {
+
+
+
+
+
+            //this.cmd_string = $"SELECT txt FROM gloss WHERE entr='{entr}'";
+            //this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
+                //this.cmd_string = $"SELECT txt FROM kanj WHERE txt='{word}';";
+                //this.cmd = new SQLiteCommand(this.cmd_string, this.connection);
+                //var search_word = cmd.ExecuteScalar().ToString();
+
+
+
+            }
 
     }
 }

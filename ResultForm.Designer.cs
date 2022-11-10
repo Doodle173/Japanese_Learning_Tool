@@ -44,7 +44,7 @@ namespace jpLearningToolOcr
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pos_box = new System.Windows.Forms.ListBox();
+            this.wordReadingsBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // resultsBox
@@ -166,9 +166,9 @@ namespace jpLearningToolOcr
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(241, 85);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Part of Speech";
+            this.label6.Text = "Word Readings";
             // 
             // label7
             // 
@@ -188,21 +188,21 @@ namespace jpLearningToolOcr
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 15;
             // 
-            // pos_box
+            // wordReadingsBox
             // 
-            this.pos_box.FormattingEnabled = true;
-            this.pos_box.Location = new System.Drawing.Point(241, 101);
-            this.pos_box.Name = "pos_box";
-            this.pos_box.Size = new System.Drawing.Size(118, 173);
-            this.pos_box.TabIndex = 16;
-            this.pos_box.SelectedIndexChanged += new System.EventHandler(this.pos_box_SelectedIndexChanged);
+            this.wordReadingsBox.FormattingEnabled = true;
+            this.wordReadingsBox.Location = new System.Drawing.Point(241, 101);
+            this.wordReadingsBox.Name = "wordReadingsBox";
+            this.wordReadingsBox.Size = new System.Drawing.Size(119, 251);
+            this.wordReadingsBox.TabIndex = 16;
+            this.wordReadingsBox.SelectedIndexChanged += new System.EventHandler(this.pos_box_SelectedIndexChanged);
             // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 496);
-            this.Controls.Add(this.pos_box);
+            this.Controls.Add(this.wordReadingsBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -242,6 +242,6 @@ namespace jpLearningToolOcr
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox pos_box;
+        public System.Windows.Forms.ListBox wordReadingsBox;
     }
 }

@@ -24,11 +24,24 @@ namespace jpLearningToolOcr
         
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selection = this.resultsBox.SelectedItem.ToString();
+            string selection = "";
+            if (this.resultsBox.SelectedItem != null)
+            {
+                query_result.readings.Clear();
+                this.wordReadingsBox.Items.Clear();
+                selection = this.resultsBox.SelectedItem.ToString();
+                MainForm.handler.get_entry(selection);
+                MainForm.handler.get_reading(query_result.entry_id);
+                Console.WriteLine(query_result.readings.Count);
+            }
+            else
+            {
+                Console.WriteLine("error");
+            }
             MainForm.handler.test_command(selection);
 
             this.selectedWordBox.Text = query_result.word;
-            this.hiraganaReading.Text = query_result.reading;
+            //this.hiraganaReading.Text = query_result.reading;
         }
 
         public void setResults(List<String> values)
