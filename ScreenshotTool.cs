@@ -126,7 +126,7 @@ namespace jpLearningToolOcr
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Form1.ActiveForm.Hide();
+                MainForm.ActiveForm.Hide();
             }
         }
         private void form_onMouseMove(object sender, MouseEventArgs e)

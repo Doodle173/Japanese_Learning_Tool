@@ -10,17 +10,17 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 namespace jpLearningToolOcr
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        ScreenshotTool tool;
-        List<String> results;
-
-        public Form1()
+        public static ScreenshotTool tool = new ScreenshotTool();
+        public static SQLiteHandler handler;
+        public static List<String> results = new List<string>();
+        
+        public MainForm()
         {
             Console.OutputEncoding = Encoding.UTF8;
             InitializeComponent();
-            tool = new ScreenshotTool();
-            results = new List<string>();
+            handler = new SQLiteHandler();
         }
 
         private void Form1_Load(object sender, EventArgs e)

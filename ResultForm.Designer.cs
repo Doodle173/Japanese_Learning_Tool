@@ -220,6 +220,7 @@ namespace jpLearningToolOcr
             this.Controls.Add(this.resultsBox);
             this.Name = "ResultForm";
             this.Text = "ResultForm";
+            this.Load += new System.EventHandler(this.ResultForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

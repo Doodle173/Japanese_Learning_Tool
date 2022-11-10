@@ -93,5 +93,10 @@ namespace jpLearningToolOcr
         {
 
         }
+
+        private void ResultForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
