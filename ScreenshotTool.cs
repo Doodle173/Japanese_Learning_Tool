@@ -31,12 +31,16 @@ namespace jpLearningToolOcr
         TesseractOcr ocrObject;
 
         public List<string> results;
+
+        ResultForm resultForm;
         
         public ScreenshotTool()
         {
             InitializeComponent();
             beginSnipping();
             this.results = new List<string>();
+            this.resultForm = new ResultForm();
+            
         }
 
         private void beginSnipping()
@@ -64,12 +68,13 @@ namespace jpLearningToolOcr
             
         }
 
-        public bool confirmResults()
+        private  bool confirmResults()
         {
             confirmationResult = MessageBox.Show("Pressing no will return you to selection mode.", "Would you like to use this selection?", confirmationButtons);
             if (confirmationResult == System.Windows.Forms.DialogResult.Yes)
             {
                 this.Hide(); //Hide the UI used for taking screenshots
+                this.resultForm.Show();
                 selectionScreenshot = new Bitmap(selectionRectangle.Width, selectionRectangle.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 bitmapGenerator = Graphics.FromImage(selectionScreenshot);
                 bitmapGenerator.CopyFromScreen(selectionRectangle.Left, selectionRectangle.Top, 0, 0, selectionRectangle.Size);
@@ -81,9 +86,13 @@ namespace jpLearningToolOcr
                 result = ocrObject.getTokenizedResults(selectionScreenshot); //Use mecab to tokenize the text that was scanned
                 Console.WriteLine(result);
                 
+
                 this.results = this.ocrObject.getParsedWordsList();
 
                 Console.WriteLine(results.Count);
+                this.resultForm.setResults(this.results);
+                this.resultForm.setScannedText(ocrObject.getResult());
+                this.resultForm.setScanAccuracy(ocrObject.getAccuracy().ToString());
                 return true;
             }
             return false;
@@ -96,6 +105,7 @@ namespace jpLearningToolOcr
 
         public void showForm()
         {
+            this.resultForm.Hide();
             this.Show();
         }
 
@@ -109,18 +119,14 @@ namespace jpLearningToolOcr
         {
             this.isDrawing = false;
             Console.WriteLine("Selection bounds: " + selectionRectangle);
-
-            if (this.confirmResults())
-            {
-                mainForm.resultsForm.Show();
-            }
+            this.confirmResults();
         }
 
         private void form_keyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                mainForm.ActiveForm.Hide();
+                Form1.ActiveForm.Hide();
             }
         }
         private void form_onMouseMove(object sender, MouseEventArgs e)

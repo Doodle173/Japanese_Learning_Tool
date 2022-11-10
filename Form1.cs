@@ -8,36 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.Data.Common;
-using System.Data.SQLite;
-
 namespace jpLearningToolOcr
 {
-    public partial class mainForm : Form
+    public partial class Form1 : Form
     {
-<<<<<<< HEAD:mainForm.cs
-        public static ScreenshotTool tool = new ScreenshotTool();
-        public static ResultsForm resultsForm = new ResultsForm();
-        SqliteHandler handler;
-=======
         ScreenshotTool tool;
         List<String> results;
         SearchTool sTool;
->>>>>>> parent of 189fbda (cleaning old code):Form1.cs
 
-        public mainForm()
+        public Form1()
         {
             Console.OutputEncoding = Encoding.UTF8;
             InitializeComponent();
-<<<<<<< HEAD:mainForm.cs
-            handler = new SqliteHandler();
-
-
-=======
             tool = new ScreenshotTool();
             results = new List<string>();
             this.sTool = new SearchTool();
->>>>>>> parent of 189fbda (cleaning old code):Form1.cs
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -69,24 +54,5 @@ namespace jpLearningToolOcr
 
         }
 
-<<<<<<< HEAD:mainForm.cs
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void debugButton_Click(object sender, EventArgs e)
-        {
-            foreach (String s in tool.results)
-            {
-                Console.WriteLine(s);
-            }
-        }
-
-        private void sqliteDebugBtn_Click(object sender, EventArgs e)
-        {
-            handler.test_query();
-        }
-=======
->>>>>>> parent of 189fbda (cleaning old code):Form1.cs
     }
 }
