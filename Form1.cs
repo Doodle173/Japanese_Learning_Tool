@@ -14,7 +14,6 @@ namespace jpLearningToolOcr
     {
         ScreenshotTool tool;
         List<String> results;
-        SearchTool sTool;
 
         public Form1()
         {
@@ -22,7 +21,6 @@ namespace jpLearningToolOcr
             InitializeComponent();
             tool = new ScreenshotTool();
             results = new List<string>();
-            this.sTool = new SearchTool();
         }
 
         private void Form1_Load(object sender, EventArgs e)

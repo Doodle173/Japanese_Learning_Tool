@@ -13,46 +13,16 @@ namespace jpLearningToolOcr
     public partial class ResultForm : Form
     {
         List<String> results;
-        SearchTool searchTool;
         public ResultForm()
         {
             InitializeComponent();
             this.results = new List<string>();
-            this.searchTool = new SearchTool();
-            
         }
         
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.wordMeaningsBox.Items.Clear();
             this.pos_box.Items.Clear();
-            SearchResult result;
-
-            string selectedVal = this.resultsBox.SelectedItem.ToString();
-
-            this.selectedWordBox.Text = selectedVal;
-            result = this.searchTool.search(selectedVal);
-
-            hiraganaReading.Text = result.reading;
-
-            textBox1.Text = result.jlpt;
-
-            if (result.meanings == null)
-            {
-                this.wordMeaningsBox.Items.Clear();
-            }
-            else
-            {
-                foreach (Newtonsoft.Json.Linq.JToken token in result.meanings)
-                {
-                    this.wordMeaningsBox.Items.Add(token.ToString());
-                }
-                foreach (Newtonsoft.Json.Linq.JToken token in result.partOfSpeech)
-                {
-                    this.pos_box.Items.Add(token.ToString());
-                }
-            }
-
         }
 
         public void setResults(List<String> values)
