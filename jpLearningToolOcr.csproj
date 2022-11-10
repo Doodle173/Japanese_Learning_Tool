@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SearchResult.cs" />
     <Compile Include="ResultForm.cs">
       <SubType>Form</SubType>
     </Compile>

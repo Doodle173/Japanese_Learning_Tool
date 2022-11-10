@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace jpLearningToolOcr
 {
     public partial class ResultForm : Form
     {
+
+        public static SearchResult query_result = new SearchResult();
         List<String> results;
         public ResultForm()
         {
@@ -21,8 +24,11 @@ namespace jpLearningToolOcr
         
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.wordMeaningsBox.Items.Clear();
-            this.pos_box.Items.Clear();
+            string selection = this.resultsBox.SelectedItem.ToString();
+            MainForm.handler.test_command(selection);
+
+            this.selectedWordBox.Text = query_result.word;
+            this.hiraganaReading.Text = query_result.reading;
         }
 
         public void setResults(List<String> values)

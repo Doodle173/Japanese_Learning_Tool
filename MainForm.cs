@@ -52,5 +52,8 @@ namespace jpLearningToolOcr
 
         }
 
+        private void sqlite_debug_btn_Click(object sender, EventArgs e) { 
+        
+        }
     }
 }

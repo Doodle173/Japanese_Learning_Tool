@@ -56,14 +56,14 @@ namespace jpLearningToolOcr
     "lection tool.";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 157);
+            this.ClientSize = new System.Drawing.Size(321, 164);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.screenshotButton);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
